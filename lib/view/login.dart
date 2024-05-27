@@ -16,6 +16,7 @@ class _Login extends State<Login> {
     final media = MediaQuery.of(context);
 
     return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.label,
       child: GestureDetector(
         onTap: () => FocusScope.of(context).unfocus(),
         child: SizedBox(
@@ -65,7 +66,7 @@ class _Login extends State<Login> {
                     children: [
                       Container(
                         height: media.size.height / 1.9,
-                        padding: EdgeInsets.symmetric(horizontal: 32, vertical: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 20),
                         margin: const EdgeInsets.all(20),
                         decoration: BoxDecoration(
                           color: CupertinoColors.white,
@@ -83,7 +84,7 @@ class _Login extends State<Login> {
                               ),
                             ),
                             const SizedBox(height: 22,),
-                            SizedBox(
+                            const SizedBox(
                               height: 40,
                               child: Input(
                                 hint: 'Email or Username',
@@ -93,12 +94,37 @@ class _Login extends State<Login> {
 
                             const SizedBox( height:16),
 
-                            SizedBox(
+                            const SizedBox(
                               height: 40,
                               child: Input(
                                 hint: 'Password',
                                 icon: CupertinoIcons.eye,
                               ),
+                            ),
+
+                            const SizedBox(height: 16),
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  'Remember me',
+                                  style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: MainColors.starterWhite,
+                                  ),
+                                ),
+
+                                CupertinoSwitch(
+                                  value: rememberMe,
+                                  onChanged: (bool value) {
+                                    setState(() {
+                                      rememberMe = value;
+                                    });
+                                  },
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -140,5 +166,11 @@ class _Input extends State<Input> {
       ),
       focusNode: _focusNode,
     );
+  }
+
+  @override
+  void dispose() {
+    _focusNode.dispose();
+    super.dispose();
   }
 }
