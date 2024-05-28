@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:spotify_clone/data/main_colors.dart';
+import 'package:spotify_clone/view/tabs.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -75,60 +77,190 @@ class _Login extends State<Login> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-                            const Text(
-                              'Login Account',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontSize: 23,
-                                  fontWeight: FontWeight.w500
+                            const Flexible(
+                              flex: 1,
+                              fit: FlexFit.tight,
+                              child: Text(
+                                'Login Account',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontSize: 23,
+                                    fontWeight: FontWeight.w500
+                                ),
                               ),
                             ),
-                            const SizedBox(height: 22,),
-                            const SizedBox(
-                              height: 40,
-                              child: Input(
-                                hint: 'Email or Username',
-                                icon: CupertinoIcons.mail,
+                            Flexible(
+                              flex: 3,
+                              fit: FlexFit.tight,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  const SizedBox(
+                                    height: 40,
+                                    child: Input(
+                                      hint: 'Email or Username',
+                                      icon: CupertinoIcons.mail,
+                                    ),
+                                  ),
+
+                                  const SizedBox(height: 16),
+
+                                  const SizedBox(
+                                    height: 40,
+                                    child: Input(
+                                      hint: 'Password',
+                                      icon: CupertinoIcons.eye,
+                                    ),
+                                  ),
+
+                                  const SizedBox(height: 16),
+
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      const Text(
+                                        'Remember me',
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w400,
+                                          color: MainColors.starterWhite,
+                                        ),
+                                      ),
+
+                                      CupertinoSwitch(
+                                        value: rememberMe,
+                                        onChanged: (bool value) {
+                                          setState(() {
+                                            rememberMe = value;
+                                          });
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
 
-                            const SizedBox( height:16),
-
-                            const SizedBox(
-                              height: 40,
-                              child: Input(
-                                hint: 'Password',
-                                icon: CupertinoIcons.eye,
-                              ),
-                            ),
-
-                            const SizedBox(height: 16),
-
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                const Text(
-                                  'Remember me',
+                            Flexible(
+                              flex: 1,
+                              fit: FlexFit.loose,
+                              child: CupertinoButton(
+                                color: MainColors.primaryColor,
+                                borderRadius: BorderRadius.circular(25),
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    CupertinoPageRoute(builder: (context) => const Tabs()),
+                                  );
+                                },
+                                child: const Text(
+                                  'LOG IN',
                                   style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w400,
-                                    color: MainColors.starterWhite,
+                                    color: CupertinoColors.white,
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.w700,
                                   ),
                                 ),
+                              ),
+                            ),
 
-                                CupertinoSwitch(
-                                  value: rememberMe,
-                                  onChanged: (bool value) {
-                                    setState(() {
-                                      rememberMe = value;
-                                    });
-                                  },
-                                ),
-                              ],
+                            const SizedBox(height: 10,),
+
+                            const Flexible(
+                              flex: 1,
+                              fit: FlexFit.loose,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Expanded(
+                                    child: Divider(
+                                      thickness: 1,
+                                      height: 1,
+                                      endIndent: 5,
+                                      color: MainColors.starterWhite,
+                                    ),
+                                  ),
+
+                                  Text(
+                                    'or',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: MainColors.starterWhite,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+
+                                  Expanded(
+                                    child: Divider(
+                                      thickness: 1,
+                                      indent: 5,
+                                      height: 1,
+                                      color: MainColors.starterWhite,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            Flexible(
+                              flex: 2,
+                              fit: FlexFit.loose,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      SizedBox(
+                                        height: 40,
+                                        child: Image.asset('assets/images/google+.png'),
+                                      ),
+                                      const SizedBox(width: 15,),
+                                      SizedBox(
+                                        height: 40,
+                                        child: Image.asset('assets/images/facebook.png'),
+                                      ),
+                                    ],
+                                  ),
+
+                                  const SizedBox(height: 16,),
+                                  const Text(
+                                    'Forget password?',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: MainColors.starterWhite,
+                                    ),
+                                  ),
+                                ],
+                              )
                             ),
                           ],
                         ),
                       ),
+
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Don’t have an account?',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(width: 20,),
+                          Text(
+                            'Sign up now',
+                            style: TextStyle(
+                              color: MainColors.primaryColor,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: media.size.height * 0.035)
                     ],
                   ),
                 ),
