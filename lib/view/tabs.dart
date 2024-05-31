@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:spotify_clone/data/main_colors.dart';
 import 'package:spotify_clone/view/tab/home_page.dart';
 import 'package:spotify_clone/view/tab/more_page.dart';
 import 'package:spotify_clone/view/tab/search_page.dart';
@@ -11,79 +12,45 @@ class Tabs extends StatefulWidget {
 }
 
 class _Tabs extends State<Tabs> {
-  int index = 0;
-
-  final List _screen = [
-    HomePage(),
-    SearchPage(),
-    MorePage()
-  ];
-
   @override
   Widget build(BuildContext context) {
-    var media = MediaQuery.of(context);
-    return CupertinoPageScaffold(
-      child: Container(
-        height: media.size.height,
-        child: Stack(
-          fit: StackFit.loose,
-          alignment: Alignment.bottomCenter,
-          children: [
-            _screen[index],
-
-            Container(
-              height: media.size.height * 0.075,
-              color: CupertinoColors.black,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        index = 0;
-                      });
-                    },
-                    child: SizedBox(
-                      child: Icon(
-                        (index == 0) ? CupertinoIcons.house_fill : CupertinoIcons.house,
-                        size: 20,
-                      ),
-                    ),
-                  ),
-
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        index = 1;
-                      });
-                    },
-                    child: SizedBox(
-                      child: Icon(
-                        (index == 1) ? CupertinoIcons.search_circle_fill : CupertinoIcons.search_circle,
-                        size: 25,
-                      ),
-                    ),
-                  ),
-
-                  GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        index = 2;
-                      });
-                    },
-                    child: SizedBox(
-                      child: Icon(
-                        (index == 2) ? CupertinoIcons.ellipsis_circle_fill : CupertinoIcons.ellipsis_circle,
-                        size: 25,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+    return CupertinoTabScaffold(
+      tabBar: CupertinoTabBar(
+        backgroundColor: CupertinoColors.black,
+        activeColor: MainColors.primaryColor,
+        height: 60,
+        iconSize: 22.5,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.home),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.search),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(CupertinoIcons.ellipsis),
+          ),
+        ],
       ),
+
+      tabBuilder: (BuildContext context, int index) {
+        switch (index) {
+          case 1:
+            return CupertinoTabView(
+              builder: (context) => SearchPage(),
+            );
+
+          case 2:
+            return CupertinoTabView(
+              builder: (context) => MorePage(),
+            );
+
+          default:
+            return CupertinoTabView(
+              builder: (context) => HomePage(),
+            );
+        }
+      },
     );
   }
 }
