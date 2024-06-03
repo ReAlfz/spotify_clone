@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:spotify_clone/data/main_colors.dart';
+import 'package:spotify_clone/view/tab/home/artist_list.dart';
+import 'package:spotify_clone/view/tab/home/top_music_list.dart';
+import 'package:spotify_clone/view/tab/home/weekly_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -30,8 +33,8 @@ class _HomePage extends State<HomePage> {
                       'Hello there',
                       style: TextStyle(
                         color: CupertinoColors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 24,
+                        fontWeight: FontWeight.w800,
+                        fontSize: 28,
                       ),
                     ),
 
@@ -46,7 +49,7 @@ class _HomePage extends State<HomePage> {
               ),
 
               const Padding(
-                padding: EdgeInsets.only(top: 20),
+                padding: EdgeInsets.only(top: 50),
                 child: Row(
                   children: [
                     Icon(
@@ -79,6 +82,41 @@ class _HomePage extends State<HomePage> {
                 ),
               ),
 
+              const WeeklyList(),
+
+              const Padding(
+                padding: EdgeInsets.only(top: 20, left: 5),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Your Top Mix',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: CupertinoColors.white,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+              ),
+
+              const TopMusicList(),
+
+              const Padding(
+                padding: EdgeInsets.only(top: 15, left: 5),
+                child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    'Suggested artist',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: CupertinoColors.white,
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ),
+              ),
+
+              const ArtistList(),
             ],
           ),
         ),
