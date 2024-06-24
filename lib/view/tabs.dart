@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:spotify_clone/data/main_colors.dart';
-import 'package:spotify_clone/view/tab/home_page.dart';
-import 'package:spotify_clone/view/tab/more_page.dart';
-import 'package:spotify_clone/view/tab/search_page.dart';
+import 'package:spotify_clone/view/tab/home/home_page.dart';
+import 'package:spotify_clone/view/tab/more/more_page.dart';
+import 'package:spotify_clone/view/tab/search/search_page.dart';
 
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
@@ -37,7 +37,7 @@ class _Tabs extends State<Tabs> {
         switch (index) {
           case 1:
             return CupertinoTabView(
-              builder: (context) => SearchPage(),
+              builder: (context) => const SearchPage(),
             );
 
           case 2:
@@ -47,7 +47,7 @@ class _Tabs extends State<Tabs> {
 
           default:
             return CupertinoTabView(
-              builder: (context) => HomePage(),
+              builder: (context) => const HomePage(),
             );
         }
       },

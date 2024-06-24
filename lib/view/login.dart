@@ -288,6 +288,8 @@ class _Input extends State<Input> {
   @override
   Widget build(BuildContext context) {
     return CupertinoTextField(
+      placeholder: widget.hint,
+      placeholderStyle: const TextStyle(color: MainColors.starterWhite),
       prefix: Padding(
         padding: const EdgeInsets.only(left: 10),
         child: Icon(widget.icon),
