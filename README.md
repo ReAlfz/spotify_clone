@@ -7,6 +7,10 @@ sorry for being too lazy to make my own data and media
 
 ## Screenshots
 
-| Started Page                   | Login page                     |
-|--------------------------------|--------------------------------|
-| ![alt text](preview/start.jpg) | ![alt text](preview/login.jpg) |
+| Login Page                      | Home page                     |
+|---------------------------------|-------------------------------|
+| ![alt text](preview/login.png)  | ![alt text](preview/home.png) |
+| Search Page                     | More Page                     |  
+| ![alt text](preview/search.png) | ![alt text](preview/more.png) |
+
+This project is just a UI of sporify and has no music playing performance.
