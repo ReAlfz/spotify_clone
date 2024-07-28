@@ -9,8 +9,8 @@ sorry for being too lazy to make my own data and media
 
 | Login Page                      | Home page                     |
 |---------------------------------|-------------------------------|
-| ![alt text](preview/login.png)  | ![alt text](preview/home.png) |
+| ![alt text](preview/login.PNG)  | ![alt text](preview/home.PNG) |
 | Search Page                     | More Page                     |  
-| ![alt text](preview/search.png) | ![alt text](preview/more.png) |
+| ![alt text](preview/search.PNG) | ![alt text](preview/more.PNG) |
 
 This project is just a UI of sporify and has no music playing performance.
