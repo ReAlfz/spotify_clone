@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:spotify_clone/data/main_colors.dart';
-import 'package:spotify_clone/view/tab/home/artist_list.dart';
-import 'package:spotify_clone/view/tab/home/top_music_list.dart';
-import 'package:spotify_clone/view/tab/home/weekly_list.dart';
+import 'package:spotify_clone/view/tab/home/widget/artist_list.dart';
+import 'package:spotify_clone/view/tab/home/widget/top_music_list.dart';
+import 'package:spotify_clone/view/tab/home/widget/weekly_list.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,7 +19,7 @@ class _HomePage extends State<HomePage> {
       backgroundColor: CupertinoColors.black,
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        padding: EdgeInsets.fromLTRB(16, media.viewPadding.top + 5, 16, 16),
+        padding: EdgeInsets.fromLTRB(16, media.viewPadding.top + 10, 16, 16),
         child: Column(
           children: [
             Padding(
